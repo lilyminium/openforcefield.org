@@ -9,4 +9,4 @@ The following organisations are current members of the Open Force Field Consorti
 
 {{< br >}}
 
-Interested in joining? [Get in touch](/partners/).
+Interested in joining? [Get in touch](partners/).

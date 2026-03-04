@@ -48,4 +48,4 @@ Consortium members actively shape the work. Industry partners bring real-world e
 
 {{< br >}}
 
-Interested in joining? See our [industry partners](/partners/industry/) or [get in touch](/partners/).
+Interested in joining? See our [industry partners](partners/industry/) or [get in touch](partners/).
