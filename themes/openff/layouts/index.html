@@ -4,7 +4,7 @@
 		<p class="center home-tagline">{{ .Description }}</p>
 		<div class="sections home-cta m-t-md">
 			{{ range .Params.sections }}
-			{{ if .href }}<a href="{{ .href }}" class="home-section-link">{{ end }}
+			{{ if .href }}<a href="{{ .href | relURL }}" class="home-section-link">{{ end }}
 			<section class="p-a-lg">
 				<img src="{{ .image }}" class="center" />
 				<h3 class="p-t-md">{{ .title }}</h3>
