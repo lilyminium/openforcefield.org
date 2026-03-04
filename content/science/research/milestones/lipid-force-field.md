@@ -9,21 +9,14 @@ doi: ""
 
 ## Overview
 
-Development of a comprehensive SMIRNOFF-compatible protein force field that can be applied consistently with OpenFF small molecule parameters. The goal is to enable all-atom simulations of protein–ligand systems using a unified, self-consistent OpenFF parameter set.
-
-The project builds directly on the biopolymer infrastructure added to the OpenFF Toolkit (0.9+) and draws on structural benchmark datasets to validate backbone and side-chain geometries.
+Development of a SMIRNOFF-compatible lipid force field for accurate membrane simulations. The goal is to enable all-atom simulations of lipid bilayers and membrane–protein systems using a unified, self-consistent OpenFF parameter set that is compatible with existing small molecule and protein parameters.
 
 ## Scientific goals
 
-- SMIRNOFF typing for the 20 standard amino acids, terminal caps, and common post-translational modifications
-- Consistent treatment of non-standard/unnatural amino acids using the direct chemical perception framework
-- Validated against protein NMR observables, crystal structure reproduction, and protein–ligand relative binding free energies
-- Compatible with Sage small molecule parameters for seamless protein–ligand simulations
-
-## Related work
-
-- [Structure-Based Experimental Datasets for Benchmarking of Protein Simulation Force Fields](/science/publications/) — Cavender et al., 2023
-- [Current state of open source force fields in protein-ligand binding affinity predictions](/science/publications/) — Hahn et al., 2023
+- SMIRNOFF typing for common lipid head groups (phosphatidylcholines, phosphatidylethanolamines, sphingolipids) and acyl chains
+- Validated against membrane bilayer properties: area per lipid, bilayer thickness, order parameters, and lateral diffusion
+- Compatible with OpenFF small molecule and protein parameters for membrane–protein simulations
+- Consistent with OpenFF water model co-optimization for accurate solvation
 
 ## Meeting minutes
 

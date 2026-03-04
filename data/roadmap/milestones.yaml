@@ -23,18 +23,32 @@
   target: "2026"
   description: >
     Development of a comprehensive SMIRNOFF-compatible protein force field,
-    targeting consistent treatment of standard and non-standard amino acids
-    alongside existing small molecule parameters.
+    co-optimized with small molecule parameters for seamless protein–ligand
+    simulations. Targets consistent treatment of standard and non-standard
+    amino acids validated against QM data, NMR observables, and binding free
+    energies.
+
+- id: lipid-force-field
+  title: "Lipid force field"
+  status: current
+  category: force-field
+  target: "2026"
+  description: >
+    Development of a SMIRNOFF-compatible lipid force field for accurate
+    membrane simulations, covering common head groups and acyl chains.
+    Validated against bilayer properties and designed for compatibility
+    with OpenFF small molecule and protein parameters.
 
 - id: sage-2-4-0
   title: "Sage 2.4.0"
   codename: "Sage"
   status: current
   category: force-field
-  target: "2025"
+  target: "2026"
   description: >
-    Next Sage minor release with continued improvements to valence and
-    non-bonded parameters, building on the Sage 2.3.0 training pipeline.
+    Next Sage minor release, fit using a PyTorch-based framework with the
+    smee and descent libraries. Includes extended QM training datasets,
+    continued torsion improvements, and Lennard-Jones refinements.
 
 - id: water-model
   title: "Water model co-optimization"
@@ -42,8 +56,9 @@
   category: force-field
   target: "2026"
   description: >
-    Co-optimization of a water model jointly with OpenFF small molecule
-    parameters to improve accuracy of solvation and binding free energies.
+    Co-optimization of a 3-site water model alongside OpenFF small molecule
+    parameters against both pure and mixture physical property data, improving
+    accuracy of solvation and binding free energies.
 
 - id: virtual-sites
   title: "Virtual sites"
@@ -51,21 +66,50 @@
   category: force-field
   target: "2026"
   description: >
-    Prototype force field with virtual sites to capture anisotropic charge
-    distributions (halogens, lone pairs), improving electrostatic accuracy
-    without adding atomic mass.
+    Prototype force field with SMIRNOFF-native virtual sites to capture
+    anisotropic charge distributions — particularly sigma holes on halogens
+    and lone pairs on nitrogen — improving electrostatic accuracy.
 
 - id: nn-charges-v2
   title: "Neural network charges v2"
   status: current
   category: method
-  target: "2025"
+  target: "2027"
   description: >
-    Second-generation neural network charge model building on AshGC,
-    targeting broader chemical coverage and improved accuracy for
-    challenging functional groups.
+    Second-generation neural network charge model fit directly to QM
+    properties (including electric field) at a high level of theory,
+    with explicit incorporation of solvent effects and broader chemical
+    space coverage than AshGC.
+
+# ─── Released — 2026 ──────────────────────────────────────────────────────────
+
+- id: sage-2-3-0
+  title: "Sage 2.3.0"
+  codename: "Sage"
+  status: released
+  category: force-field
+  date: "2026-01-13"
+  description: >
+    First OpenFF force field to use the AshGC neural network charge model.
+    Both vdW and valence parameters were re-fit; torsions are split so a
+    single parameter covers only one multiplicity per central bond.
+  github: "https://github.com/openforcefield/openff-forcefields/releases/tag/2026.01.0"
+  doi: ""
 
 # ─── Released — 2025 ──────────────────────────────────────────────────────────
+
+- id: rosemary-alpha
+  title: "Rosemary alpha"
+  codename: "Rosemary"
+  status: released
+  category: force-field
+  date: "2025-10-22"
+  description: >
+    Alpha release of Rosemary (OpenFF 3.x), the third-generation OpenFF small
+    molecule force field. Parameters are co-optimized to peptide and small
+    molecule data using the AshGC charge model. Intended for community testing
+    ahead of a stable release.
+  github: "https://github.com/openforcefield/openff-forcefields/releases/tag/2025.10.1"
 
 - id: ashgc
   title: "AshGC"
@@ -76,32 +120,9 @@
   description: >
     Deep learning partial charge model providing AM1-BCC quality charges
     at a fraction of the computational cost, enabling rapid charge
-    assignment for large compound libraries.
-  github: ""           # TODO: add GitHub release URL
-
-- id: rosemary-alpha
-  title: "Rosemary alpha"
-  codename: "Rosemary"
-  status: released
-  category: force-field
-  date: "2025-01-01"   # TODO: update with actual release date
-  description: >
-    Alpha release of the third-generation OpenFF force field, featuring
-    refitted electrostatics (AM1-BCC-ELF10) and Lennard-Jones parameters
-    optimised against condensed-phase data.
-  github: ""           # TODO: add GitHub release URL
-
-- id: sage-2-3-0
-  title: "Sage 2.3.0"
-  codename: "Sage"
-  status: released
-  category: force-field
-  date: "2025-01-01"   # TODO: update with actual release date
-  description: >
-    Third Sage minor release with improved valence parameters and extended
-    chemical space coverage.
-  github: "https://github.com/openforcefield/openff-forcefields/releases"
-  doi: ""              # TODO: add Zenodo DOI
+    assignment for large compound libraries and high-throughput screening.
+  github: "https://github.com/openforcefield/ashgc-v1.0-fit"
+  doi: "https://doi.org/10.26434/chemrxiv-2025-597h9/v2"
 
 # ─── Released — 2024 ──────────────────────────────────────────────────────────
 
@@ -143,17 +164,6 @@
     Automated bespoke torsion parameterization workflow for generating
     molecule-specific force fields from user-supplied QM data.
   github: "https://github.com/openforcefield/openff-bespokefit"
-
-- id: protein-in-toolkit
-  title: "Protein integration in Toolkit"
-  status: released
-  category: infrastructure
-  date: "2022-03-01"   # approximate
-  description: >
-    Extension of the OpenFF Toolkit to support biopolymer
-    parameterization, enabling consistent treatment of proteins
-    and non-standard amino acids in SMIRNOFF force fields.
-  github: "https://github.com/openforcefield/openff-toolkit"
 
 # ─── Released — 2021 ──────────────────────────────────────────────────────────
 
