@@ -249,3 +249,45 @@ table {
   padding: $padding;
   overflow-x: auto;
 }
+
+// ── Partner logo grid (industry partners page) ────────────────────────────────
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2*$padding auto;
+  max-width: 60rem;
+  list-style: none;
+  padding: 0;
+
+  a.partner-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    img {
+      height: 2.5rem;
+      max-width: 8rem;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.6;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+
+    .partner-logo-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      @each $color, $colorObject in $colors {
+        [data-color="#{$color}"] & { color: color($color, 'primary'); }
+      }
+    }
+
+    &:hover img {
+      filter: none;
+      opacity: 1;
+    }
+  }
+}

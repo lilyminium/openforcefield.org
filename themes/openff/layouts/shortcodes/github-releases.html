@@ -1,0 +1,17 @@
+{{- $repo := .Get "repo" | default "openforcefield/openff-forcefields" -}}
+{{- $url := printf "https://api.github.com/repos/%s/releases?per_page=50" $repo -}}
+{{- with resources.GetRemote $url -}}
+  {{- $releases := . | transform.Unmarshal -}}
+  {{- range $releases -}}
+  {{- if not .draft -}}
+  <div class="ff-release">
+    <h3><a href="{{ .html_url }}">{{ .name }}</a></h3>
+    <p class="ff-release-date">Released {{ time.Format "January 2, 2006" .published_at }}</p>
+    <div class="ff-release-body">{{ .body | markdownify }}</div>
+    <p><a href="{{ .html_url }}" class="button">GitHub release</a></p>
+  </div>
+  {{- end -}}
+  {{- end -}}
+{{- else -}}
+  <p>Could not load releases automatically. See <a href="https://github.com/{{ $repo }}/releases">GitHub</a> for the latest releases.</p>
+{{- end -}}

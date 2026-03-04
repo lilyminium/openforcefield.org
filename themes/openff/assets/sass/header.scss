@@ -74,18 +74,33 @@ header {
       background: linear-gradient(180deg, #{color($color, 'gradient-start')} 0%, #{color($color, 'gradient-end')} 100vh);
     }
   }
-  > * {
-    vertical-align: middle;
-  }
+  display: flex;
+  align-items: center;
   > a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     img {
       height: $header-height;
       display: block;
     }
   }
+  .logo-name-link {
+    margin-left: auto;
+    text-decoration: none;
+    color: inherit;
+    @media (max-width: $breakpoint-phone) {
+      display: none;
+    }
+  }
+  .logo-name {
+    padding-right: $padding;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    b { font-weight: 700; }
+  }
   nav {
-    display: inline-block;
     @media (max-width: $breakpoint-phone) {
       display: block;
     }
@@ -183,15 +198,20 @@ header {
   @media (max-width: $breakpoint-phone) {
     display: none;
   }
-  &.active + div {
-  }
   + div {
-    padding-bottom: 2 * $padding;
-    padding-top: calc(#{2*$padding} + #{$header-height});
     margin-top: calc(#{$padding} + #{$header-height} - 2px);
     @media (max-width: $breakpoint-phone) {
       margin-top: 0;
     }
+  }
+  &.active + div {
+    margin-top: calc(#{$padding} + #{$header-height} - 2px + 4rem);
+    @media (max-width: $breakpoint-phone) {
+      margin-top: 0;
+    }
+  }
+  &.active ~ .subheader-menu {
+    top: calc(#{$header-height} + 4rem);
   }
   .submenu {
     position: absolute;
@@ -315,7 +335,7 @@ header {
   width: 100%;
   background-color: #FFF;
   position: sticky;
-  top: calc(#{2*$padding} + #{2*$header-height} - 4px);
+  top: #{$header-height};
   z-index: 6;
   @media (max-width: $breakpoint-phone) {
     position: relative;

@@ -4,7 +4,9 @@
 {{ $currentSection := .Site.GetPage $path }}
 <div class="menu-button">{{ partial "icon-menu" }}</div>
 <header>
-	<a href="{{ .Site.BaseURL }}" class="logo"><img src="{{ "img/icon.svg" | relURL }}" /></a>
+	<a href="{{ .Site.BaseURL }}" class="logo">
+		<img src="{{ "img/icon.svg" | relURL }}" />
+	</a>
 	{{ with .Site.Menus.main }}
 		<nav>
 			<ul>
@@ -34,6 +36,7 @@
 			</ul>
 		</nav>
 	{{ end }}
+	<a href="{{ .Site.BaseURL }}" class="logo-name-link"><span class="logo-name">{{ .Site.Params.header_title | safeHTML }}</span></a>
 	<div class="search-button" style="display: none">
 		<img src="{{ "img/search.svg" | relURL }}" />
 	</div>
@@ -54,45 +57,4 @@
 		{{ end }}
 	{{ end }}
 </div>
-{{ if and (not $currentPage.Params.omit_header_text) (not .IsHome) }}
-	<div class="subheader">
-		<h1>{{ $currentPage.Params.header_title | default .Site.Params.header_title | safeHTML }}</h1>
-		<h3>{{ $currentPage.Params.header_subtitle | default .Site.Params.header_subtitle }}</h3>
-		{{ if $currentPage.Params.header_intro }}
-			{{ .Scratch.Set "headerIntro" $currentPage.Params.header_intro }}
-		{{ else if $currentPage.Parent.Params.header_intro }}
-			{{ .Scratch.Set "headerIntro" $currentPage.Parent.Params.header_intro }}
-		{{ end }}
-		{{ if .Scratch.Get "headerIntro" }}<h1>{{ .Scratch.Get "headerIntro" }}</h1>{{ end }}
-
-		{{ if $currentPage.Params.header_list }}
-			{{ .Scratch.Set "headerList" $currentPage.Params.header_list }}
-			{{ $currentPage.Scratch.Set "imagePath" "./" }}
-		{{ else if $currentPage.Parent.Params.header_list }}
-			{{ $currentPage.Scratch.Set "imagePath" "../" }}
-			{{ .Scratch.Set "headerList" $currentPage.Parent.Params.header_list }}
-		{{ end }}
-		{{ if .Scratch.Get "headerList" }}
-		<ul class="list">
-			{{ range .Scratch.Get "headerList" }}
-				<li class="item" data-columns="2">
-			    <div class="item-icon">
-						{{ if .icon }}<img src="{{ $currentPage.Scratch.Get "imagePath" }}img/{{ .icon }}" />{{ end }}
-						{{ if .number }}{{ .number }}{{ end }}
-					</div>
-			    <div>
-			      <h3>{{ .title }}</h3>
-						<p>{{ .description}}</p>
-					</div>
-				</li>
-			{{ end }}
-		</ul>
-		{{ end }}
-		{{ if $currentPage.Params.header_contents }}
-			{{ .Scratch.Set "headerContents" $currentPage.Params.header_contents }}
-		{{ else if $currentPage.Parent.Params.header_contents }}
-			{{ .Scratch.Set "headerContents" $currentPage.Parent.Params.header_contents }}
-		{{ end }}
-		{{ if .Scratch.Get "headerContents" }}<p>{{ .Scratch.Get "headerContents"| safeHTML }}</p>{{ end }}
-	</div>
-{{ end }}
+{{ if not .IsHome }}<div class="header-spacer"></div>{{ end }}

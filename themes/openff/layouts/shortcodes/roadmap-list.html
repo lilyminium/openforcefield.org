@@ -1,0 +1,105 @@
+{{- $milestones := .Site.Data.roadmap.milestones -}}
+
+{{- $current  := slice -}}
+{{- $released := slice -}}
+{{- $planned  := slice -}}
+{{- range $milestones -}}
+  {{- if eq .status "current"  -}}{{- $current  = $current  | append . -}}{{- end -}}
+  {{- if eq .status "released" -}}{{- $released = $released | append . -}}{{- end -}}
+  {{- if eq .status "planned"  -}}{{- $planned  = $planned  | append . -}}{{- end -}}
+{{- end -}}
+
+{{/* Sort released by date descending */}}
+{{- $released = sort $released "date" "desc" -}}
+
+<div class="roadmap-list">
+
+  {{/* ── In Progress ─────────────────────────────────────── */}}
+  {{- if $current -}}
+  <div class="roadmap-group">
+    <h2 class="roadmap-group-title">In progress</h2>
+    <div class="roadmap-cards">
+      {{- range $current -}}
+      <div class="roadmap-card roadmap-card-current">
+        <div class="roadmap-card-meta">
+          <span class="roadmap-badge roadmap-badge-current">In progress</span>
+          {{- if .target -}}<span class="roadmap-target">Target: {{ .target }}</span>{{- end -}}
+        </div>
+        <h3 class="roadmap-card-title">
+          <a href="{{ "/science/research/milestones/" | relURL }}{{ .id }}/">{{ .title }}</a>
+        </h3>
+        {{- if .description -}}<p class="roadmap-card-desc">{{ .description | markdownify }}</p>{{- end -}}
+        {{- if or .github .doi -}}
+        <div class="roadmap-card-links">
+          {{- if .github -}}<a href="{{ .github }}" class="roadmap-link">GitHub →</a>{{- end -}}
+          {{- if .doi -}}<a href="{{ .doi }}" class="roadmap-link">DOI →</a>{{- end -}}
+        </div>
+        {{- end -}}
+      </div>
+      {{- end -}}
+    </div>
+  </div>
+  {{- end -}}
+
+  {{/* ── Released (grouped by year) ────────────────────── */}}
+  {{- if $released -}}
+  <div class="roadmap-group">
+    <h2 class="roadmap-group-title">Released</h2>
+
+    {{/* Collect unique years, preserving desc order */}}
+    {{- $years := slice -}}
+    {{- range $released -}}
+      {{- $y := .date | time.Format "2006" -}}
+      {{- if not (in $years $y) -}}{{- $years = $years | append $y -}}{{- end -}}
+    {{- end -}}
+
+    {{- range $years -}}
+      {{- $year := . -}}
+      <div class="roadmap-year">
+        <h3 class="roadmap-year-label">{{ $year }}</h3>
+        <div class="roadmap-cards">
+          {{- range $released -}}
+            {{- if eq (.date | time.Format "2006") $year -}}
+            <div class="roadmap-card roadmap-card-released">
+              <div class="roadmap-card-meta">
+                <span class="roadmap-badge roadmap-badge-released">Released</span>
+                {{- if .date -}}<span class="roadmap-target">{{ .date | time.Format "January 2006" }}</span>{{- end -}}
+              </div>
+              <h3 class="roadmap-card-title">
+                <a href="{{ "/science/research/milestones/" | relURL }}{{ .id }}/">{{ .title }}</a>
+              </h3>
+              {{- if .description -}}<p class="roadmap-card-desc">{{ .description | markdownify }}</p>{{- end -}}
+              <div class="roadmap-card-links">
+                {{- if .github -}}<a href="{{ .github }}" class="roadmap-link">GitHub →</a>{{- end -}}
+                {{- if .doi -}}<a href="{{ .doi }}" class="roadmap-link">DOI →</a>{{- end -}}
+                <a href="{{ "/science/research/milestones/" | relURL }}{{ .id }}/" class="roadmap-link">Details →</a>
+              </div>
+            </div>
+            {{- end -}}
+          {{- end -}}
+        </div>
+      </div>
+    {{- end -}}
+  </div>
+  {{- end -}}
+
+  {{/* ── Planned ──────────────────────────────────────── */}}
+  {{- if $planned -}}
+  <div class="roadmap-group">
+    <h2 class="roadmap-group-title">Planned</h2>
+    <div class="roadmap-cards">
+      {{- range $planned -}}
+      <div class="roadmap-card roadmap-card-planned">
+        <div class="roadmap-card-meta">
+          <span class="roadmap-badge roadmap-badge-planned">Planned</span>
+          {{- if .target -}}<span class="roadmap-target">Target: {{ .target }}</span>{{- end -}}
+        </div>
+        <h3 class="roadmap-card-title">{{ .title }}</h3>
+        {{- if .description -}}<p class="roadmap-card-desc">{{ .description | markdownify }}</p>{{- end -}}
+      </div>
+      {{- end -}}
+    </div>
+  </div>
+  {{- end -}}
+
+</div>

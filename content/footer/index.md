@@ -7,27 +7,23 @@
 
 [[column1]]
   title = "About"
-  url = "/about"
+  url = "/about/mission"
   [[column1]]
-    title = "Organization"
-    url = "/about/organization"
+    title = "Who We Are"
+    url = "/about/mission"
     parent = "about"
   [[column1]]
-    title = "Roadmap"
-    url = "/about/roadmap"
-    parent = "about"
-  [[column1]]
-    title = "Team"
+    title = "Team & Positions"
     url = "/about/team"
     parent = "about"
   [[column1]]
-    title = "Branding"
-    url = "/about/branding"
+    title = "FAQ"
+    url = "/community/faq"
     parent = "about"
 
 [[column2]]
   title = "Science"
-  url = "/science"
+  url = "/science/research"
   [[column2]]
     title = "Research"
     url = "/science/research"
@@ -37,57 +33,37 @@
     url = "/science/publications"
     parent = "science"
   [[column2]]
-    title = "Collaborative projects"
-    url = "/science/collaborative-projects/"
+    title = "How to Cite"
+    url = "/science/how-to-cite/"
     parent = "science"
   [[column2]]
-    title = "How to Cite"
-    url = "/science//how-to-cite/"
+    title = "Data"
+    url = "/science/data"
     parent = "science"
-
-[[column3]]
-  title = "Software"
-  url = "/software"
-
-[[column3]]
-  title = "Data"
-  url = "/data"
 
 [[column3]]
   title = "Force Fields"
-  url = "/force-fields"
+  url = "/force-fields/force-fields"
+
+[[column3]]
+  title = "Community"
+  url = "/community/events"
   [[column3]]
-    title = "Force Fields"
-    url = "/force-fields/force-fields"
-    parent = "force-fields"
-  [[column3]]
-    title = "Versioning"
-    url = "/force-fields/versioning"
-    parent = "force-fields"
+    title = "Events"
+    url = "/community/events"
+    parent = "community"
 
 [[column4]]
-  title = "Community"
-  url = "/community/news/general"
+  title = "Partners"
+  url = "/partners"
   [[column4]]
-    title = "News"
-    url = "/community/news/general"
-    parent = "news"
+    title = "Why join"
+    url = "/partners"
+    parent = "partners"
   [[column4]]
-    title = "Events"
-    url = "/community/events/webinars"
-    parent = "news"
-  [[column4]]
-    title = "Collaborate"
-    url = "/community/collaborate"
-    parent = "news"  
-  [[column4]]
-    title = "FAQ"
-    url = "/community/faq"
-    parent = "news"  
-  [[column4]]
-    title = "Discussions"
-    url = "/community/forum"
-    parent = "news"
+    title = "Industry Partners"
+    url = "/partners/industry"
+    parent = "partners"
 
 [[right]]
   title = "Follow | Subscribe | Connect"

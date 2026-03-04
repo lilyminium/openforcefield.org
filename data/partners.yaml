@@ -1,0 +1,59 @@
+# Single source of truth for industry partners.
+# To add or remove a partner, edit this file only.
+# Both the industry page text list and logo wall read from here.
+#
+# Fields:
+#   name   - display name
+#   url    - company website
+#   domain - bare domain used for Clearbit logo lookup (https://logo.clearbit.com/<domain>)
+
+- name: Achira
+  url: https://achira.ai/
+  domain: achira.ai
+  logo: achira.ai.svg
+
+- name: Bayer
+  url: https://www.bayer.com/
+  domain: bayer.com
+  logo: bayer.com.svg
+
+- name: Bristol Myers Squibb
+  url: https://www.bms.com/
+  domain: bms.com
+  logo: bms.com.svg
+
+- name: Cresset
+  url: https://www.cresset-group.com/
+  domain: cresset-group.com
+
+- name: Recursion
+  url: https://www.recursion.com/
+  domain: recursion.com
+
+- name: F. Hoffmann-La Roche AG
+  url: https://www.roche.com/
+  domain: roche.com
+
+- name: Johnson & Johnson
+  url: https://www.jnj.com/
+  domain: jnj.com
+
+- name: OpenEye
+  url: https://www.eyesopen.com/
+  domain: eyesopen.com
+
+- name: Pfizer
+  url: https://www.pfizer.com/
+  domain: pfizer.com
+
+- name: SandboxAQ
+  url: https://www.sandboxaq.com/
+  domain: sandboxaq.com
+
+- name: Ventus Therapeutics
+  url: https://www.ventustx.com/
+  domain: ventustx.com
+
+- name: Vertex Pharmaceuticals
+  url: https://www.vrtx.com/
+  domain: vrtx.com

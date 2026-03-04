@@ -1,0 +1,170 @@
+// ── Roadmap list (used on science/research page) ──────────────────────────────
+
+.roadmap-list {
+  padding: $padding 0 3*$padding;
+}
+
+.roadmap-group {
+  margin-bottom: 3*$padding;
+
+  > h2.roadmap-group-title {
+    font-size: 1.4rem;
+    font-weight: 300;
+    padding-bottom: 0.5*$padding;
+    margin-bottom: $padding;
+    border-bottom: 2px solid;
+    @each $color, $colorObject in $colors {
+      [data-color="#{$color}"] & { border-color: color($color, 'primary'); }
+    }
+  }
+}
+
+.roadmap-year {
+  margin-bottom: 2*$padding;
+}
+
+.roadmap-year-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: $padding;
+  @each $color, $colorObject in $colors {
+    [data-color="#{$color}"] & { color: color($color, 'secondary'); }
+  }
+}
+
+.roadmap-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: $padding;
+  @media (max-width: $breakpoint-phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roadmap-card {
+  border: 2px solid;
+  border-radius: 6px;
+  padding: 1.2*$padding;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5*$padding;
+
+  @each $color, $colorObject in $colors {
+    [data-color="#{$color}"] &.roadmap-card-current {
+      border-color: color($color, 'highlight');
+      background: lighten(color($color, 'gray'), 0%);
+    }
+    [data-color="#{$color}"] &.roadmap-card-released {
+      border-color: color($color, 'gray');
+    }
+    [data-color="#{$color}"] &.roadmap-card-planned {
+      border-color: color($color, 'tertiary');
+      opacity: 0.75;
+    }
+  }
+}
+
+.roadmap-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6*$padding;
+  flex-wrap: wrap;
+}
+
+.roadmap-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+
+  &.roadmap-badge-current {
+    @each $color, $colorObject in $colors {
+      [data-color="#{$color}"] & {
+        background: color($color, 'highlight');
+        color: #fff;
+      }
+    }
+  }
+  &.roadmap-badge-released {
+    background: #e0e0e0;
+    color: #444;
+  }
+  &.roadmap-badge-planned {
+    background: transparent;
+    border: 1px solid #aaa;
+    color: #666;
+  }
+}
+
+.roadmap-target {
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+.roadmap-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  a {
+    text-decoration: none;
+    @each $color, $colorObject in $colors {
+      [data-color="#{$color}"] & { color: color($color, 'primary'); }
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.roadmap-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+  color: #333;
+}
+
+.roadmap-card-links {
+  display: flex;
+  gap: 0.8*$padding;
+  flex-wrap: wrap;
+  margin-top: 0.3*$padding;
+}
+
+.roadmap-link {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  font-weight: 600;
+  @each $color, $colorObject in $colors {
+    [data-color="#{$color}"] & {
+      color: color($color, 'highlight');
+    }
+  }
+  &:hover { text-decoration: underline; }
+}
+
+// ── Milestone detail pages ─────────────────────────────────────────────────────
+
+.milestone-header {
+  display: flex;
+  align-items: center;
+  gap: $padding;
+  flex-wrap: wrap;
+  margin-bottom: $padding;
+}
+
+.milestone-links {
+  display: flex;
+  gap: $padding;
+  flex-wrap: wrap;
+  margin: $padding 0;
+  .button { min-width: unset; }
+}

@@ -1,0 +1,21 @@
+{{- $partners := .Site.Data.partners -}}
+
+<ul>
+  {{- range $partners -}}
+  <li><a href="{{ .url }}">{{ .name }}</a></li>
+  {{- end -}}
+</ul>
+
+<div class="partner-logos">
+  {{- range $partners -}}
+  {{- $src := printf "https://logo.clearbit.com/%s" .domain -}}
+  {{- if .logo -}}{{- $src = printf "img/partners/%s" .logo | relURL -}}{{- end -}}
+  <a href="{{ .url }}" class="partner-logo" title="{{ .name }}" target="_blank" rel="noopener">
+    <img
+      src="{{ $src }}"
+      alt="{{ .name }}"
+      onerror="if(!this.tried){this.tried=true;this.src='https://logo.clearbit.com/{{ .domain }}';}else{this.style.display='none';this.nextElementSibling.style.display='inline';}"
+    /><span class="partner-logo-text" style="display:none;">{{ .name }}</span>
+  </a>
+  {{- end -}}
+</div>

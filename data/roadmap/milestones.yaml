@@ -1,0 +1,209 @@
+# Roadmap milestones — single source of truth for the Research/Roadmap page.
+#
+# STATUS VALUES:
+#   current   — in active development
+#   released  — shipped (add `date` in YYYY-MM-DD)
+#   planned   — on the roadmap but not yet started
+#
+# AUTO-UPDATING TIPS:
+#   • When a "current" project ships, change status → released, add date, add github/doi links.
+#   • The force-fields page (/force-fields/force-fields/) auto-updates from GitHub releases —
+#     no manual edits needed there.
+#   • To surface the latest release automatically here, use the `latest-ff` shortcode
+#     in the milestone's detail page.
+#
+# CATEGORY VALUES: force-field | infrastructure | method | data
+
+# ─── In Progress ──────────────────────────────────────────────────────────────
+
+- id: protein-force-field
+  title: "Protein force field"
+  status: current
+  category: force-field
+  target: "2026"
+  description: >
+    Development of a comprehensive SMIRNOFF-compatible protein force field,
+    targeting consistent treatment of standard and non-standard amino acids
+    alongside existing small molecule parameters.
+
+- id: sage-2-4-0
+  title: "Sage 2.4.0"
+  codename: "Sage"
+  status: current
+  category: force-field
+  target: "2025"
+  description: >
+    Next Sage minor release with continued improvements to valence and
+    non-bonded parameters, building on the Sage 2.3.0 training pipeline.
+
+- id: water-model
+  title: "Water model co-optimization"
+  status: current
+  category: force-field
+  target: "2026"
+  description: >
+    Co-optimization of a water model jointly with OpenFF small molecule
+    parameters to improve accuracy of solvation and binding free energies.
+
+- id: virtual-sites
+  title: "Virtual sites"
+  status: current
+  category: force-field
+  target: "2026"
+  description: >
+    Prototype force field with virtual sites to capture anisotropic charge
+    distributions (halogens, lone pairs), improving electrostatic accuracy
+    without adding atomic mass.
+
+- id: nn-charges-v2
+  title: "Neural network charges v2"
+  status: current
+  category: method
+  target: "2025"
+  description: >
+    Second-generation neural network charge model building on AshGC,
+    targeting broader chemical coverage and improved accuracy for
+    challenging functional groups.
+
+# ─── Released — 2025 ──────────────────────────────────────────────────────────
+
+- id: ashgc
+  title: "AshGC"
+  codename: "Ash"
+  status: released
+  category: method
+  date: "2025-01-01"   # TODO: update with actual release date
+  description: >
+    Deep learning partial charge model providing AM1-BCC quality charges
+    at a fraction of the computational cost, enabling rapid charge
+    assignment for large compound libraries.
+  github: ""           # TODO: add GitHub release URL
+
+- id: rosemary-alpha
+  title: "Rosemary alpha"
+  codename: "Rosemary"
+  status: released
+  category: force-field
+  date: "2025-01-01"   # TODO: update with actual release date
+  description: >
+    Alpha release of the third-generation OpenFF force field, featuring
+    refitted electrostatics (AM1-BCC-ELF10) and Lennard-Jones parameters
+    optimised against condensed-phase data.
+  github: ""           # TODO: add GitHub release URL
+
+- id: sage-2-3-0
+  title: "Sage 2.3.0"
+  codename: "Sage"
+  status: released
+  category: force-field
+  date: "2025-01-01"   # TODO: update with actual release date
+  description: >
+    Third Sage minor release with improved valence parameters and extended
+    chemical space coverage.
+  github: "https://github.com/openforcefield/openff-forcefields/releases"
+  doi: ""              # TODO: add Zenodo DOI
+
+# ─── Released — 2024 ──────────────────────────────────────────────────────────
+
+- id: sage-2-2-0
+  title: "Sage 2.2.0"
+  codename: "Sage"
+  status: released
+  category: force-field
+  date: "2024-04-18"
+  description: >
+    Updates to Sage 2.1.0 including improvements to small ring angles
+    and sulfamide parameters.
+  github: "https://github.com/openforcefield/openff-forcefields/releases/tag/2024.04.0"
+  doi: "https://zenodo.org/record/10995191"
+
+# ─── Released — 2023 ──────────────────────────────────────────────────────────
+
+- id: sage-2-1-0
+  title: "Sage 2.1.0"
+  codename: "Sage"
+  status: released
+  category: force-field
+  date: "2023-05-02"
+  description: >
+    Improved chemical perception for sulfonamides and phosphates,
+    extended training set coverage, and improved fitting procedures
+    using a physically intuitive starting point.
+  github: "https://github.com/openforcefield/openff-forcefields/releases/tag/2023.05.1"
+  doi: "https://zenodo.org/record/7889050"
+
+# ─── Released — 2022 ──────────────────────────────────────────────────────────
+
+- id: bespokefit
+  title: "OpenFF BespokeFit"
+  status: released
+  category: infrastructure
+  date: "2022-06-01"   # approximate
+  description: >
+    Automated bespoke torsion parameterization workflow for generating
+    molecule-specific force fields from user-supplied QM data.
+  github: "https://github.com/openforcefield/openff-bespokefit"
+
+- id: protein-in-toolkit
+  title: "Protein integration in Toolkit"
+  status: released
+  category: infrastructure
+  date: "2022-03-01"   # approximate
+  description: >
+    Extension of the OpenFF Toolkit to support biopolymer
+    parameterization, enabling consistent treatment of proteins
+    and non-standard amino acids in SMIRNOFF force fields.
+  github: "https://github.com/openforcefield/openff-toolkit"
+
+# ─── Released — 2021 ──────────────────────────────────────────────────────────
+
+- id: sage-2-0-0
+  title: "Sage 2.0.0"
+  codename: "Sage"
+  status: released
+  category: force-field
+  date: "2021-08-18"
+  description: >
+    Second-generation OpenFF force field with retrained Lennard-Jones
+    parameters alongside improved valence parameters, using expanded
+    QM datasets and condensed-phase property data.
+  github: "https://github.com/openforcefield/openff-forcefields/releases/tag/2.0.0"
+  doi: "https://zenodo.org/record/5214478"
+
+# ─── Released — 2019–2020 ─────────────────────────────────────────────────────
+
+- id: parsley
+  title: "Parsley (OpenFF 1.0)"
+  codename: "Parsley"
+  status: released
+  category: force-field
+  date: "2020-01-15"
+  description: >
+    First generation of optimised OpenFF small molecule force fields,
+    refit from smirnoff99Frosst against large QM datasets using ForceBalance.
+    Introduced systematic parameter optimisation for the OpenFF Initiative.
+  github: "https://github.com/openforcefield/openff-forcefields/releases/tag/1.0.0"
+  doi: "https://zenodo.org/record/3483227"
+
+- id: openff-toolkit
+  title: "OpenFF Toolkit"
+  status: released
+  category: infrastructure
+  date: "2019-01-01"
+  description: >
+    Open-source Python toolkit for applying SMIRNOFF force fields to
+    molecular systems. Supports RDKit and OpenEye backends with
+    direct chemical perception via SMARTS-based typing.
+  github: "https://github.com/openforcefield/openff-toolkit"
+
+- id: smirnoff99frosst
+  title: "smirnoff99Frosst"
+  status: released
+  category: force-field
+  date: "2019-01-01"
+  description: >
+    Minimalist AMBER-compatible general small molecule force field using
+    SMIRNOFF direct chemical perception. Comparable accuracy to GAFF with
+    far fewer parameters; served as the starting point for Parsley.
+  github: "https://github.com/openforcefield/smirnoff99Frosst"
+  doi: "https://doi.org/10.5281/zenodo.3351714"

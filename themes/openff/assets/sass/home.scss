@@ -1,8 +1,7 @@
 .home {
   color: #FFF;
-  height: 100vh;
-  padding-top: calc(13vh + #{$header-height});
-  padding-bottom: calc(13vh + #{$header-height});
+  padding-top: calc(2vh + #{$header-height});
+  padding-bottom: 3*$padding;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,14 +22,26 @@
     height: 100%;
     position: absolute;
   }
-  h1, h2, h3 {
+  h1, h2, h3, p {
     color: #FFF !important;
   }
-  h1 {
+  .home-brand {
+    font-size: 2.8rem;
+    font-weight: 300;
     white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    b { font-weight: 700; }
     @media (max-width: $breakpoint-phone) {
+      font-size: 2rem;
       white-space: normal;
     }
+  }
+  .home-tagline {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.85;
+    margin-top: 0.4rem;
   }
   .button {
     border: solid 2px #FFF;
@@ -40,6 +51,93 @@
     }
   }
 }
+.home-cta {
+  gap: 2rem;
+}
+.home-section-link {
+  flex: 1;
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  section {
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    transition: background 0.2s, border-color 0.2s;
+    width: 100%;
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.8);
+    }
+  }
+}
+.home-why {
+  background: #fff;
+  padding: 2*$padding 2*$padding;
+  text-align: center;
+  .home-why-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: $padding;
+    @each $color, $colorObject in $colors {
+      [data-color="#{$color}"] & { color: color($color, 'primary'); }
+    }
+  }
+}
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $padding;
+  width: 90%;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  @media (max-width: $breakpoint-phone) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature-card {
+    text-align: center;
+    padding: $padding 0.5*$padding;
+    .feature-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      background: #015581;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      img {
+        height: 1.6rem;
+        width: auto;
+        filter: brightness(0) invert(1);
+      }
+    }
+    h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0 0 0.3rem;
+      color: #333;
+    }
+    p {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin: 0;
+      color: #666;
+    }
+  }
+}
+.home-partners {
+  background: #f5f6f8;
+  padding: 2*$padding;
+  text-align: center;
+  .home-partners-title {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: $padding;
+    color: #555;
+  }
+}
 .m-t-md {
-  margin-top:-1rem !important;
+  margin-top: 1.5rem !important;
 }

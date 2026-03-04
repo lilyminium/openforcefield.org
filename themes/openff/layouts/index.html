@@ -1,18 +1,52 @@
 {{ define "main" }}
 	<main class="home">
-		<img src="{{ .Params.featured_image }}" class="center" />
-		<h1 class="center m-t-lg">{{ .Description }}</h1>
-		<div class="sections m-t-md">
+		<h1 class="home-brand">{{ .Site.Params.header_title | safeHTML }}</h1>
+		<p class="center home-tagline">{{ .Description }}</p>
+		<div class="sections home-cta m-t-md">
 			{{ range .Params.sections }}
+			{{ if .href }}<a href="{{ .href }}" class="home-section-link">{{ end }}
 			<section class="p-a-lg">
 				<img src="{{ .image }}" class="center" />
 				<h3 class="p-t-md">{{ .title }}</h3>
 				<p class="p-t-md">{{ .description }}</p>
 			</section>
+			{{ if .href }}</a>{{ end }}
 			{{ end }}
 		</div>
-		<div class="sections m-t-md">
-			{{ .Content }}
-		</div>
 	</main>
+	{{ if .Params.features }}
+	<section class="home-why">
+		<h2 class="home-why-title">Why Open Force Field?</h2>
+		<ul class="home-features">
+			{{ range .Params.features }}
+			<li class="feature-card">
+				<div class="feature-icon">
+					<img src="{{ printf "img/%s" .icon | relURL }}" alt="{{ .title }}" />
+				</div>
+				<h3>{{ .title }}</h3>
+				<p>{{ .description }}</p>
+			</li>
+			{{ end }}
+		</ul>
+	</section>
+	{{ end }}
+	{{ $partners := .Site.Data.partners }}
+	{{ if $partners }}
+	<section class="home-partners">
+		<h2 class="home-partners-title">Our Partners</h2>
+		<div class="partner-logos">
+			{{- range $partners -}}
+			{{- $src := printf "https://logo.clearbit.com/%s" .domain -}}
+			{{- if .logo -}}{{- $src = printf "img/partners/%s" .logo | relURL -}}{{- end -}}
+			<a href="{{ .url }}" class="partner-logo" title="{{ .name }}" target="_blank" rel="noopener">
+				<img
+					src="{{ $src }}"
+					alt="{{ .name }}"
+					onerror="if(!this.tried){this.tried=true;this.src='https://logo.clearbit.com/{{ .domain }}';}else{this.style.display='none';this.nextElementSibling.style.display='inline';}"
+				/><span class="partner-logo-text" style="display:none;">{{ .name }}</span>
+			</a>
+			{{- end -}}
+		</div>
+	</section>
+	{{ end }}
 {{ end }}
