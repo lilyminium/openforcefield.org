@@ -7,62 +7,62 @@
 
 [[column1]]
   title = "About"
-  url = "/about/mission"
+  url = "about/mission"
   [[column1]]
     title = "Who We Are"
-    url = "/about/mission"
+    url = "about/mission"
     parent = "about"
   [[column1]]
     title = "Team & Positions"
-    url = "/about/team"
+    url = "about/team"
     parent = "about"
   [[column1]]
     title = "FAQ"
-    url = "/community/faq"
+    url = "community/faq"
     parent = "about"
 
 [[column2]]
   title = "Science"
-  url = "/science/research"
+  url = "science/research"
   [[column2]]
     title = "Research"
-    url = "/science/research"
+    url = "science/research"
     parent = "science"
   [[column2]]
     title = "Publications"
-    url = "/science/publications"
+    url = "science/publications"
     parent = "science"
   [[column2]]
     title = "How to Cite"
-    url = "/science/how-to-cite/"
+    url = "science/how-to-cite/"
     parent = "science"
   [[column2]]
     title = "Data"
-    url = "/science/data"
+    url = "science/data"
     parent = "science"
 
 [[column3]]
   title = "Force Fields"
-  url = "/force-fields/force-fields"
+  url = "force-fields/force-fields"
 
 [[column3]]
   title = "Community"
-  url = "/community/events"
+  url = "community/events"
   [[column3]]
     title = "Events"
-    url = "/community/events"
+    url = "community/events"
     parent = "community"
 
 [[column4]]
   title = "Partners"
-  url = "/partners"
+  url = "partners"
   [[column4]]
     title = "Why join"
-    url = "/partners"
+    url = "partners"
     parent = "partners"
   [[column4]]
     title = "Industry Partners"
-    url = "/partners/industry"
+    url = "partners/industry"
     parent = "partners"
 
 [[right]]
