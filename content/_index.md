@@ -13,13 +13,13 @@ href = "https://docs.openforcefield.org/"
 image = "images/icons/open-science.svg"
 title = "Our Science"
 description = "Data-driven force field development through open science and open data."
-href = "/science/research/"
+href = "science/research/"
 
 [[sections]]
 image = "images/icons/open-data.svg"
 title = "Partner with us"
 description = "Join the Consortium to shape the future of drug discovery force fields."
-href = "/partners/"
+href = "partners/"
 
 [[features]]
 icon = "tools.svg"
