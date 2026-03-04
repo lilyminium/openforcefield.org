@@ -26,7 +26,7 @@
           {{- if .target -}}<span class="roadmap-target">Target: {{ .target }}</span>{{- end -}}
         </div>
         <h3 class="roadmap-card-title">
-          <a href="{{ "/science/research/milestones/" | relURL }}{{ .id }}/">{{ .title }}</a>
+          <a href="{{ "science/research/milestones/" | relURL }}{{ .id }}/">{{ .title }}</a>
         </h3>
         {{- if .description -}}<p class="roadmap-card-desc">{{ .description | markdownify }}</p>{{- end -}}
         {{- if or .github .doi -}}
@@ -66,13 +66,13 @@
                 {{- if .date -}}<span class="roadmap-target">{{ .date | time.Format "January 2006" }}</span>{{- end -}}
               </div>
               <h3 class="roadmap-card-title">
-                <a href="{{ "/science/research/milestones/" | relURL }}{{ .id }}/">{{ .title }}</a>
+                <a href="{{ "science/research/milestones/" | relURL }}{{ .id }}/">{{ .title }}</a>
               </h3>
               {{- if .description -}}<p class="roadmap-card-desc">{{ .description | markdownify }}</p>{{- end -}}
               <div class="roadmap-card-links">
                 {{- if .github -}}<a href="{{ .github }}" class="roadmap-link">GitHub →</a>{{- end -}}
                 {{- if .doi -}}<a href="{{ .doi }}" class="roadmap-link">DOI →</a>{{- end -}}
-                <a href="{{ "/science/research/milestones/" | relURL }}{{ .id }}/" class="roadmap-link">Details →</a>
+                <a href="{{ "science/research/milestones/" | relURL }}{{ .id }}/" class="roadmap-link">Details →</a>
               </div>
             </div>
             {{- end -}}
