@@ -59,7 +59,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "https://minium.com.au/openforcefield.org/"
+            --baseURL "https://lilyminium.github.io/openforcefield.org/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/v3'
